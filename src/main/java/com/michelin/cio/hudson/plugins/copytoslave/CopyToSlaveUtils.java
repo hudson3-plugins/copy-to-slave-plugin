@@ -43,25 +43,24 @@ public class CopyToSlaveUtils {
     }
 
     public static FilePath getProjectWorkspaceOnMaster(AbstractProject project, PrintStream logger) {
-        FilePath projectWorkspaceOnMaster;
-
-        // free-style projects
-        if(project instanceof FreeStyleProject) {
-            FreeStyleProject freeStyleProject = (FreeStyleProject) project;
-
-            // do we use a custom workspace?
-            if(freeStyleProject.getCustomWorkspace() != null && freeStyleProject.getCustomWorkspace().length() > 0) {
-                projectWorkspaceOnMaster = new FilePath(new File(freeStyleProject.getCustomWorkspace()));
-            }
-            else {
-                projectWorkspaceOnMaster = new FilePath(new File(freeStyleProject.getRootDir(), "workspace"));
-            }
-        }
-        else {
-            projectWorkspaceOnMaster = new FilePath(new File(project.getRootDir(), "workspace"));
-        }
-
+        FilePath projectWorkspaceOnMaster = null;
         try {
+	        // free-style projects
+	        if(project instanceof FreeStyleProject) {
+	            FreeStyleProject freeStyleProject = (FreeStyleProject) project;
+	
+	            // do we use a custom workspace?
+	            if(freeStyleProject.getCustomWorkspace() != null && freeStyleProject.getCustomWorkspace().length() > 0) {
+	                projectWorkspaceOnMaster = new FilePath(new File(freeStyleProject.getCustomWorkspace()));
+	            }
+	            else {
+	                projectWorkspaceOnMaster = new FilePath(new File(freeStyleProject.getRootDir(), "workspace"));
+	            }
+	        }
+	        else {
+	            projectWorkspaceOnMaster = new FilePath(new File(project.getRootDir(), "workspace"));
+	        }
+
             // create the workspace if it doesn't exist yet
             projectWorkspaceOnMaster.mkdirs();
         }

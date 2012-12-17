@@ -39,7 +39,7 @@ import hudson.util.IOException2;
 import hudson.util.IOUtils;
 import hudson.util.io.Archiver;
 import hudson.util.io.ArchiverFactory;
-import static hudson.util.jna.GNUCLibrary.LIBC;
+import static org.hudsonci.plugins.jna.GNUCLibrary.LIBC;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;

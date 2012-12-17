@@ -2,17 +2,18 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.jenkins-ci.plugins</groupId>
-    <artifactId>plugin</artifactId>
-    <version>1.409</version>
+    <groupId>org.eclipse.hudson.plugins</groupId>
+    <artifactId>hudson-plugin-parent</artifactId>
+    <version>3.0.0-RC4</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
+  <groupId>org.hudsonci.plugins</groupId>
   <artifactId>copy-to-slave</artifactId>
   <packaging>hpi</packaging>
   <name>Copy To Slave Plugin</name>
-  <url>http://wiki.jenkins-ci.org/display/JENKINS/Copy+To+Slave+Plugin</url>
-  <version>1.4.1-SNAPSHOT</version>
+  <url>http://wiki.hudson-ci.org/display/HUDSON/Copy+To+Slave+Plugin</url>
+  <version>1.4.1-h-1-SNAPSHOT</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,26 +21,41 @@
 
   <developers>
     <developer>
+      <id>schristou88</id>
+      <name>Steven Christou</name>
+      <email>schristou88@gmail.com</email>
+      <roles>
+        <role>
+          Maintainer
+        </role>
+      </roles>
+    </developer>
+  </developers>
+  
+  <contributors>
+    <contributor>
       <id>rseguy</id>
       <name>Romain Seguy</name>
       <email>romain.seguy@gmail.com</email>
-      <timezone>+1</timezone>
-    </developer>
-  </developers>
-
-    <repositories>
-        <repository>
-            <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
-        </pluginRepository>
-    </pluginRepositories>
-</project>  
+      <roles>
+        <role>
+          Original Developer
+        </role>
+      </roles>
+    </contributor>
+  </contributors>
   
-
+  <dependencies>
+    <dependency>
+      <groupId>org.hudsonci.plugins</groupId>
+      <artifactId>jna-native-support-plugin</artifactId>
+      <version>3.0.2</version>
+    </dependency>
+  </dependencies>
+  
+  <scm>
+    <connection>scm:git:git://github.com/hudson3-plugins/copy-to-slave-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:hudson3-plugins/copy-to-slave-plugin.git</developerConnection>
+    <url>https://github.com/hudson3-plugins/copy-to-slave-plugin</url>
+  </scm>
+</project>
